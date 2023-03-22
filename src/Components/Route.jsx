@@ -21,6 +21,12 @@ function Route()
     setCounter(event.target.value);
 }
 
+  const handleSubmit=(e)=>{
+    e.preventDefault();
+    console.log("clclde")
+    window.location.href="http://127.0.0.1:8000/route/"
+  }
+
   return(
     <div>
     <form style={{marginTop:50}}>
@@ -30,7 +36,7 @@ function Route()
     <input type="text"></input>
     <Button style={{marginLeft:140}} class="MuiButton-root" variant="outlined" value={counter} onClick={(event)=>handleAccountClick(event)} >My Account</Button>
     <br></br>
-    <button style={{marginLeft:580,marginTop:30,height:25,width:100}}>Submit</button>
+    <button style={{marginLeft:580,marginTop:30,height:25,width:100}} onClick={(e)=>handleSubmit(e)}>Submit</button>
     </form>
    
 

@@ -33,34 +33,32 @@ function OwnerLogin(props)
    const handleSubmitClick=(e)=>{
       
         e.preventDefault();
-        let f=0;      
+        let cs=count+1
+        setCount(cs)
         setIsSubmit(true)
-        if(isSubmit)
+        console.log(count)
+        let c=0;
+        let f=0;      
+        apiData.length>0 && apiData.map((item)=>{
+            if (item.username==username && item.pwd==pwd)
+            {
+                c++;
+                alert('Logged in Successfully')
+                navigate("/Dashboard")
+                f=1;
+                setEmail(item.email)
+            }
+            }
+        )
+        {console.log(flag)}
+        if(e.target.value!=0 && f==0)
         {
-            apiData.length>0 && apiData.map((item)=>{
-                if (item.username===username && item.pwd===pwd)
-                {
-                    f=1;
-                    console.log("bye")
-                }
-            })
+            alert("Please Enter Valid Credentials")
         }
-        if(apiData.length>0)
-        redirect(f)
+      
     }
 
-    const redirect=(f)=>{
-        if(f==1)
-        {
-            alert('Logged In Successfully!')
-            window.location.href='http://localhost:3000/Dashboard'
-        }
-        else
-        {
-            alert('Please Enter Valid Credentials')
-        }
-    }
-
+    
     // const handleSubmitClick=(e)=>{
       
     //     e.preventDefault();      
@@ -104,7 +102,7 @@ function OwnerLogin(props)
             onChange={(e,target)=>{handleUsernameChange(e,target)}}/>
             <input type="password" id="pwd" placeholder='Password' name="pwd" 
             onChange={(e,target)=>{handlePwdChange(e,target)}}/>
-            <button className='btn' onClick={(e)=>handleSubmitClick(e)}>Login</button>
+            <button value={count} className='btn' onClick={(e)=>handleSubmitClick(e)}>Login</button>
             </form>
         </div>
     </div>

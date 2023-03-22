@@ -1,8 +1,9 @@
 import react,{useState,useEffect} from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate,useLocation } from "react-router-dom";
 import Dashboard from "./Dashboard";
 function UserLogin(props)
 {
+    const location=useLocation();
     const navigate=useNavigate();
     const[isSubmit,setIsSubmit]=useState(false);
     const[username,setUsername]=useState('');
@@ -11,8 +12,10 @@ function UserLogin(props)
     const[flag,setFlag]=useState(false);
     const[email,setEmail]=useState('');
     const[count,setCount]=useState(0);
+    const[formErrors, setFormErrors] = useState('');
 
     useEffect(() => {
+        console.log("called")
      fetch('http://127.0.0.1:8000/userDetails/')
         .then((res)=>res.json())
         .then((data)=>setApiData(data))
@@ -33,56 +36,62 @@ function UserLogin(props)
     const handleSubmitClick=(e)=>{
       
         e.preventDefault();
-       
+        let cs=count+1
+        setCount(cs)
         setIsSubmit(true)
         const viewUrl='http://127.0.0.1:8000/viewProfile/'
-        // var count=0;
-        // setCount(0)
         console.log(count)
-        {
-            apiData.map((item)=>{
-                if (item.username===username && item.pwd===pwd)
+        let c=0;
+        let f=0;
+        apiData.length>0 && apiData.map((item)=>{
+                if (item.username==username && item.pwd==pwd)
                 {
-                    setCount(count+1)
-                    setFlag(true)
+                    c++;
+                    alert('Logged in Successfully')
+                    navigate("/Dashboard")
+                    f=1;
                     setEmail(item.email)
                 }
-            })
+                }
+            )
+        {console.log(flag)}
+        if(e.target.value!=0 && f==0)
+        {
+            alert("Please Enter Valid Credentials")
         }
-        if(count==0){
-            setFlag(false)
-        }
-        if(count!=0){
-            console.log("insidee")
-            setFlag(true)
-            fetch(viewUrl, { 
+        // apiData.length>0 && apiData.map((item,index)=>{
+        //     let c=0;
+        //     if ((item.username==username && item.pwd==pwd))
+        //     {
+        //             c++;
+        //     }
+        //     if(c!=0){
 
-                method: 'POST', 
-                mode: 'cors', 
-                body: JSON.stringify(
-                    {
-                        username:username,
-                        email:email,
-                    }
-                ) 
+        //     }
+        //     }
+        // )
+
+        // if(c!=0){
+        //     console.log("insidee")
+        //     setFlag(true)
+        //     fetch(viewUrl, { 
+
+        //         method: 'POST', 
+        //         mode: 'cors', 
+        //         body: JSON.stringify(
+        //             {
+        //                 username:username,
+        //                 email:email,
+        //             }
+        //         ) 
           
-              }).then((res)=>res.json())
-              .then((data)=>console.log(data))
-        }
+        //       }).then((res)=>res.json())
+        //       .then((data)=>console.log(data))
+        // }
        
-        redirect()
+        // redirect()
     }
 
-    const redirect=()=>{
-        if(isSubmit && flag){
-            alert('Logged in Successfully')
-            navigate("/Dashboard")
-        }
-        if(isSubmit && flag==false){
-            alert('Please Enter Valid Credentials!')
-        }
-       
-    }
     return(
         <div style={{marginTop:140,marginLeft:25}}>
         <div className="register">
@@ -94,8 +103,9 @@ function UserLogin(props)
             <input type="text"  id ="username" placeholder='Username' name="username" 
             onChange={(e,target)=>{handleUsernameChange(e,target)}}/>
             <input type="password" id="pwd" placeholder='Password' name="pwd" 
-            onChange={(e,target)=>{handlePwdChange(e,target)}}/>
-            <button className='btn' onClick={(e)=>handleSubmitClick(e)}>Login</button>
+            onChange={(e,target)=>{handlePwdChange(e,target)}}/><p style={{color:'red'}}>{formErrors}</p>
+            
+            <button className='btn' value={count} onClick={(e)=>handleSubmitClick(e)}>Login</button>
             </form>
         </div>
     </div>
