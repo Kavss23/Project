@@ -82,6 +82,7 @@ function UserSignUp()
         setFormErrors(validate(formValues));
         setIsSubmit(true);
         const url='http://127.0.0.1:8000/userDetails/'
+        if(Object.keys(formErrors).length === 0){
         fetch(url, { 
 
         method: 'POST', 
@@ -99,6 +100,7 @@ function UserSignUp()
       .then((data)=>console.log(data))
       console.log(formErrors)
       redirectLogin()
+    }
       };
     
       const redirectLogin=()=>{

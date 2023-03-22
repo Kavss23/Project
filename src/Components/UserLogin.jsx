@@ -51,9 +51,24 @@ function UserLogin(props)
                     navigate("/Dashboard")
                     f=1;
                     setEmail(item.email)
+
+                    fetch(viewUrl, { 
+
+                                method: 'POST', 
+                                mode: 'cors', 
+                                body: JSON.stringify(
+                                    {
+                                        username:username,
+                                        email:item.email,
+                                    }
+                                ) 
+                          
+                              }).then((res)=>res.json())
+                              .then((data)=>console.log(data))
+                        
                 }
                 }
-            )
+        )
         {console.log(flag)}
         if(e.target.value!=0 && f==0)
         {

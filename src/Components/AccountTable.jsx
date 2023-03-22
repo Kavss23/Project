@@ -76,8 +76,8 @@ function AccountTable(props){
     return(
         <div style={{display:'flex'}}>
         
-        <TableContainer>
-        <Table sx={{width:300,marginLeft:130,display:'flex'}}>
+        <TableContainer style={{display:'flex'}}>
+        <Table sx={{marginLeft:120,display:'flex'}}>
         <TableHead >
         <TableRow>
         <TableCell>VIEW PROFILE</TableCell>
@@ -114,18 +114,7 @@ function AccountTable(props){
               </Box>
         </Collapse>
         </TableRow>
-        <TableRow>
-        <TableCell >Edit Profile</TableCell>
-        <TableCell>
-        <IconButton
-            aria-label="expand row"
-            size="small"
-            onClick={() => setEditClicked(!editClicked)}
-          >
-            {editClicked ? <KeyboardArrowUpIcon /> : <KeyboardArrowDownIcon />}
-
-          </IconButton></TableCell>
-        </TableRow>
+       
         <TableRow>
         <Collapse in={editClicked} timeout="auto" unmountOnExit>
             <Box sx={{ margin: 1 }}>
