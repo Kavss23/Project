@@ -2,11 +2,13 @@ import react,{useState} from "react";
 import AccountTable from "./AccountTable";
 import "../styles.css";
 import Button from '@mui/material/Button';
+import ConfirmBox from "./ConfirmBox";
 function Route()
 {
   const[counter,setCounter]=useState(1);
   const[showAccountTable,setShowAccountTable]=useState(false);
-
+  const[isSubmit,setIsSubmit]=useState(false);
+  const[open,setOpen]=useState('false')
   const handleAccountClick=(event)=>{
 
     if(event.target.value%2==0)
@@ -24,7 +26,10 @@ function Route()
   const handleSubmit=(e)=>{
     e.preventDefault();
     console.log("clclde")
-    window.location.href="http://127.0.0.1:8000/route/"
+    setIsSubmit(true)
+    // window.confirm("Do You want to rate us?")
+    // {<ConfirmBox />}
+    // window.location.href="http://127.0.0.1:8000/route/"
   }
 
   return(
@@ -45,6 +50,18 @@ function Route()
       <AccountTable option={counter}/>
       </div>
     }
+    {
+      isSubmit && <div>
+      <ConfirmBox
+        open={open}
+        closeDialog={() => setOpen(false)}
+        title="slkdf"
+       
+      />
+      
+      </div>
+    }
+
     </div>
   )
 }

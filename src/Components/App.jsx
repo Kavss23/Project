@@ -7,9 +7,9 @@ import CntnOwner from "./CntnOwner";
 import UserLogin from "./UserLogin";
 import Dashboard  from "./Dashboard";
 import FindRoute from "./Route";
-import Map from "./Map";
 import LoginPage from "./LoginPage";
 import OwnerLogin from "./OwnerLogin";
+import Feedback from "./Feedback";
 function App()
 {
     return(
@@ -22,9 +22,10 @@ function App()
             <Route path="/LoginPage/UserLogin" element={<UserLogin />} />
             <Route path="/Dashboard" element={<Dashboard />} />
             <Route path="/Route" element={<FindRoute />} />
-            <Route path="/Map" element={<Map />} />
             <Route path="/LoginPage" element={<LoginPage />} />
             <Route path="/LoginPage/OwnerLogin" element={<OwnerLogin />} />
+            <Route path="/Feedback" element={<Feedback />} />
+
         </Routes>
         </BrowserRouter>
     )
