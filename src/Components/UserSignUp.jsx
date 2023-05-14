@@ -78,37 +78,62 @@ function UserSignUp()
     };
 
     const handleSubmit = (e) => {
-        e.preventDefault();
-        setFormErrors(validate(formValues));
-        setIsSubmit(true);
-        const url='http://127.0.0.1:8000/userDetails/'
-        if(Object.keys(formErrors).length === 0){
-        fetch(url, { 
 
-        method: 'POST', 
-        mode: 'cors', 
-        body: JSON.stringify(
-            {
-                username:details.username,
-                email:details.email,
-                pwd:details.pwd,
-                cpwd:details.cpwd
-            }
-        ) 
+      e.preventDefault();
+      console.log(e.target.value)
+      setFormErrors(validate(formValues));
+      setIsSubmit(true);
+    redirectLogin();
+    //     e.preventDefault();
+    //     setFormErrors(validate(formValues));
+    //     setIsSubmit(true);
+    //     const url='http://127.0.0.1:8000/userDetails/'
+    //     if(Object.keys(formErrors).length === 0){
+    //     fetch(url, { 
+
+    //     method: 'POST', 
+    //     mode: 'cors', 
+    //     body: JSON.stringify(
+    //         {
+    //             username:details.username,
+    //             email:details.email,
+    //             pwd:details.pwd,
+    //             cpwd:details.cpwd
+    //         }
+    //     ) 
   
-      }).then((res)=>res.json())
-      .then((data)=>console.log(data))
-      console.log(formErrors)
-      redirectLogin()
-    }
+    //   }).then((res)=>res.json())
+    //   .then((data)=>console.log(data))
+    //   console.log(formErrors)
+    //   redirectLogin()
+    // }
       };
     
       const redirectLogin=()=>{
-       if ((Object.keys(formErrors).length === 0 && isSubmit))
-      {
-        alert('Signed Up Successfully')
-        window.location.href='http://localhost:3000/LoginPage/UserLogin'
-      }
+
+        if ((Object.keys(formErrors).length === 0 && isSubmit))
+       {
+        const url='http://127.0.0.1:8000/userDetails/'
+         fetch(url, { 
+ 
+           method: 'POST', 
+           mode: 'cors', 
+           body: JSON.stringify(
+               {
+                   username:details.username,
+                   email:details.email,
+                   pwd:details.pwd,
+                   cpwd:details.cpwd
+               }
+           ) 
+     
+         }).then((res)=>res.json())
+         .then((data)=>console.log(data))
+         console.log(formErrors)
+         alert('Signed Up Successfully')
+         window.location.href='http://localhost:3000/UserLogin'
+       }
+        
     
       }
       
@@ -116,18 +141,19 @@ function UserSignUp()
 
     return(
         <div className="register">
-        <div className="col-1">
-            <center><h2 style={{color:'black'}}>Sign Up</h2></center>
-            <form id='form' className='flex flex-col' onSubmit={handleSubmit}>
-            <input type="text"  id ="username" placeholder='Username' name="username" value={formValues.username}
-            onChange={(e)=>{handleChange(e)}}/><p style={{color:'red'}}>{formErrors.username}</p>
-            <input type="email" id="email" placeholder='Email' name="email" value={formValues.email}
-            onChange={(e)=>{handleChange(e)}}/> <p style={{color:'red'}}>{formErrors.email}</p>
-            <input type="password" id="pwd" placeholder='Password' name="pwd" value={formValues.pwd}
-            onChange={(e)=>{handleChange(e)}}/><p style={{color:'red'}}>{formErrors.pwd}</p>
-            <input type="password" id="cpwd" placeholder='Confirm Password' name="cpwd" value={formValues.cpwd}
-            onChange={(e)=>{handleChange(e)}}/><p style={{color:'red'}}>{formErrors.cpwd}</p>
-            <button className='btn' style={{color:'black'}}>Sign Up</button>
+        <div  className="col-1">
+            <center><h2 style={{color:'black',width:140,marginLeft:-20}}>Sign Up</h2></center>
+            <form id='form' style={{marginRight:80,marginLeft:5}}className='flex flex-col' onSubmit={handleSubmit}>
+            <input style={{marginRight:110,marginLeft:-166}} type="text"  id ="username" placeholder='Username' name="username" value={formValues.username}
+            onChange={(e)=>{handleChange(e)}}/><p style={{color:'red',marginRight:110,marginLeft:-166}}>{formErrors.username}</p>
+            <input style={{marginRight:110,marginLeft:-166}} type="email" id="email" placeholder='Email' name="email" value={formValues.email}
+            onChange={(e)=>{handleChange(e)}}/> <p style={{color:'red',marginRight:110,marginLeft:-166}}>{formErrors.email}</p>
+            <input style={{marginRight:110,marginLeft:-166}} type="password" id="pwd" placeholder='Password' name="pwd" value={formValues.pwd}
+            onChange={(e)=>{handleChange(e)}}/><p style={{color:'red',marginRight:110,marginLeft:-166}}>{formErrors.pwd}</p>
+            <input style={{marginRight:110,marginLeft:-166}} type="password" id="cpwd" placeholder='Confirm Password' name="cpwd" value={formValues.cpwd}
+            onChange={(e)=>{handleChange(e)}}/><p style={{color:'red',marginRight:110,marginLeft:-166}}>{formErrors.cpwd}</p>
+            <button style={{marginRight:110,marginLeft:-166}} className='btn' >Sign Up</button>
+            <a style={{marginLeft:-63}}href="http://localhost:3000/UserLogin" >Already have an Account?</a>
             </form>
 </div>
  

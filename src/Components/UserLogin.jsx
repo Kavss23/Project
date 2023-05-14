@@ -19,6 +19,12 @@ function UserLogin(props)
      fetch('http://127.0.0.1:8000/userDetails/')
         .then((res)=>res.json())
         .then((data)=>setApiData(data))
+
+        // let login=localStorage.getItem('UserLogin');
+        // if(login)
+        // {
+        //     navigate('/')
+        // }
       }, []);
        
   
@@ -36,6 +42,7 @@ function UserLogin(props)
     const handleSubmitClick=(e)=>{
       
         e.preventDefault();
+        
         let cs=count+1
         setCount(cs)
         setIsSubmit(true)
@@ -111,16 +118,17 @@ function UserLogin(props)
         <div style={{marginTop:140,marginLeft:25}}>
         <div className="register">
        
-        <div className="col-1">
+        <div  className="col-1">
             <center><h2>Login</h2></center>
             <h1>{props.username}</h1>
             <form id='form' className='flex flex-col'>
-            <input type="text"  id ="username" placeholder='Username' name="username" 
+            <input style={{marginRight:110,marginLeft:-166}} type="text"  id ="username" placeholder='Username' name="username" 
             onChange={(e,target)=>{handleUsernameChange(e,target)}}/>
-            <input type="password" id="pwd" placeholder='Password' name="pwd" 
+            <input style={{marginRight:110,marginLeft:-166}} type="password" id="pwd" placeholder='Password' name="pwd" 
             onChange={(e,target)=>{handlePwdChange(e,target)}}/><p style={{color:'red'}}>{formErrors}</p>
             
-            <button className='btn' value={count} onClick={(e)=>handleSubmitClick(e)}>Login</button>
+            <button style={{marginRight:110,marginLeft:-166}} className='btn' value={count} onClick={(e)=>handleSubmitClick(e)}>Login</button>
+            <a style={{marginLeft:-63}}href='http://localhost:3000/SignUpPage/UserSignUp'>Don't have an Account?</a>
             </form>
         </div>
     </div>

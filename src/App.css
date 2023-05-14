@@ -1,5 +1,3 @@
-
-
 .App {
   text-align: center;
 }
@@ -16,7 +14,7 @@
 }
 
 .App-header {
-  background-color: white;
+  background-color: #282c34;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -27,9 +25,16 @@
 }
 
 .App-link {
-  color: white;
+  color: #86d9f0;
 }
-
+.container-fluid{
+background-color: #ffccf2;
+padding: 0;
+margin-top: 0;
+}
+.navbar{
+  --bs-navbar-padding-y:0;
+}
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);

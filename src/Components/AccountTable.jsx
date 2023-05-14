@@ -76,11 +76,11 @@ function AccountTable(props){
     return(
         <div style={{display:'flex'}}>
         
-        <TableContainer style={{display:'flex'}}>
-        <Table sx={{marginLeft:120,display:'flex'}}>
+     
+        <Table sx={{marginLeft:130,marginTop:-2,display:'flex'}}>
         <TableHead >
         <TableRow>
-        <TableCell>VIEW PROFILE</TableCell>
+        <TableCell >VIEW PROFILE</TableCell>
         <TableCell>
         <IconButton
             aria-label="expand row"
@@ -92,22 +92,22 @@ function AccountTable(props){
         </TableRow>
         <TableRow>
         <Collapse in={open} timeout="auto" unmountOnExit>
-            <Box sx={{ margin: 1 }}>
+            <Box >
             <div style={{display:'flex'}}>
-                <h3 style={{marginRight:10}}>Username :</h3>
+                <p style={{marginRight:10}}>Username :</p>
                 {
                   viewData.length>0 && viewData.map((item,index)=>(
                     ((viewData.length-1)===index)?
-                    <h4>{item.username}</h4>:<p></p>
+                    <p>{item.username}</p>:<p></p>
                   ))
                 }
             </div>
             <div style={{display:'flex'}}>
-              <h3 style={{marginRight:10}}>Email:</h3>
+              <p style={{marginRight:10}}>Email:</p>
             {
               viewData.length>0 && viewData.map((item,index)=>(
                 ((viewData.length-1)===index)?
-                <h4>{item.email}</h4>:<p></p>
+                <p>{item.email}</p>:<p></p>
               ))
             }
         </div>
@@ -122,7 +122,7 @@ function AccountTable(props){
               <p>Enter New Username:</p>
               <input type="text" onChange={(e,target)=>{handleUsernameChange(e,target)}}></input>
               <p style={{color:'red'}}>{formErrors.username}</p>
-              <input style={{marginTop:10}} onClick={(e)=>handleSubmitClick(e)} type="submit" ></input>
+              <input style={{marginTop:10,maxHeight:1000}} onClick={(e)=>handleSubmitClick(e)} type="submit" ></input>
             </div>
               </Box>
               
@@ -138,7 +138,7 @@ function AccountTable(props){
         <TableBody>
         </TableBody>
         </Table>
-        </TableContainer>
+     
         {
           logout ?
           navigate("/"):<div>

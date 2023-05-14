@@ -1,4 +1,4 @@
-
+/* 
 .MuiButton-root{
     width: 100px;
     height:50px;
@@ -16,7 +16,7 @@ label.Mui-focused{
 }
 
 img{
-  margin-left: 1090px;
+  margin-left: 10px;
   height:150px;
   width:200px;
   margin-top: 25px;
@@ -26,7 +26,7 @@ body{
     /* background: #0f0c29;  fallback for old browsers */
     /* background: -webkit-linear-gradient(to right, #24243e, #302b63, #0f0c29);  Chrome 10-25, Safari 5.1-6 */
     /* background: linear-gradient(to right, #24243e, #302b63, #0f0c29); W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-     background-image: url(../src/Components/images/5.jpeg); 
+     background-image: url(../src/Components/images/bg.jpg); 
     background-repeat: no-repeat;
     background-size: cover;
     height: 550px; 
@@ -41,7 +41,7 @@ body{
     text-align: center;
   }
   .btnSignUp{
-    color: bisque;
+    color: #ffccf2;
   }
   .register{
     max-width: 450px;
@@ -63,11 +63,13 @@ body{
     max-width: 320px;
     width: 100vw;
     margin: 2em auto;
+    margin-left:140px;
   }
   
   #form >  input, .btn{
     border: 1px solid #e9ecef;
     padding: .9em 1em;
+    /* margin-right:100px; */
   }
   
   #form > input:focus{
@@ -88,12 +90,13 @@ body{
   }
   
   .flex-col{
+    
     flex-direction: column;
   }
   
   .register .col-1{
     margin: auto;
-    padding: 2em 0;
+    padding: 1em 0;
   }
   
   .register .col-2 img{
@@ -106,4 +109,120 @@ body{
     display: none;
   }
 
+   */
+
+   .MuiButton-root{
+    width: 100px;
+    height:50px;
+}
+
+.MuiInputLabel-root{
+  color:red;
+}
+
+/* {
+  color:red
+} */
+label.Mui-focused{
+  color:red;
+}
+
+img{
+  margin-left: 131px;
+  height:120px;
+  width:170px;
+  margin-top: 25px;
+  border-radius: 40%;
+}
+
+body{
+    /* background: #0f0c29;  fallback for old browsers */
+    /* background: -webkit-linear-gradient(to right, #24243e, #302b63, #0f0c29);  Chrome 10-25, Safari 5.1-6 */
+    /* background: linear-gradient(to right, #24243e, #302b63, #0f0c29); W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+     background-image: url(../src/Components/images/bg.jpg); 
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 550px; 
+    /* color:white; */
+  }
   
+  h1{
+    text-align: center;
+  }
+  .App {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+  .btnSignUp{
+    color: bisque;
+  }
+  .register{
+    max-width: 450px;
+
+    margin-left: 353px;
+    margin-top: 4px;
+    width: 100vw;
+    display:flex;
+    border: 0px solid #e9ecef;
+    border-radius: 5px;
+    /* box-shadow: 1px 3px 10px #e9ecef; */
+    background-color: white;
+  }
+  .css-1ygcj2i-MuiTableCell-root{
+    font-weight: 1000;
+  }
+  .register span{
+    color: #adb5bd;
+  }
+  
+  #form{
+    max-width: 320px;
+    width: 100vw;
+    margin: 2em auto;
+  }
+  
+  #form >  input, .btn{
+    border: 1px solid #e9ecef;
+    /* padding: .10em 1em; */
+    height:40px;
+    width: auto;
+  }
+  
+  #form > input:focus{
+    outline: none;
+  }
+  
+  #form > .btn{
+    /* background-color: white; */
+    /* color: #e9ecef; */
+    background-color: #ffccf2;
+    font-size: 1em;
+    cursor: pointer;
+  }
+  
+  .flex{
+    display: flex;
+    gap: 0.5em;
+  }
+  
+  .flex-col{
+    flex-direction: column;
+  }
+  
+  .register .col-1{
+    /* margin: auto; */
+    /* padding: 2em 0; */
+  }
+  
+  .register .col-2 img{
+    width: 480px;
+    height: 100%;
+    object-fit: cover;
+    align-self: flex-end;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    display: none;
+  }

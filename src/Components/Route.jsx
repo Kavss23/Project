@@ -35,13 +35,13 @@ function Route()
   return(
     <div>
     <form style={{marginTop:50}}>
-    <label style={{marginLeft:400}}>Source : </label>
-    <input type="text"></input>
-    <label style={{marginLeft:20}}>Destination : </label>
-    <input type="text"></input>
+    <label style={{marginLeft:170,marginRight:-20}}>Source : </label>
+    <input style={{marginLeft:20,width:300}}type="text"></input>
+    <label style={{marginLeft:40}}>Destination : </label>
+    <input style={{width:300}} type="text"></input>
     <Button style={{marginLeft:100}} class="MuiButton-root" variant="outlined" value={counter} onClick={(event)=>handleAccountClick(event)} >My Account</Button>
     <br></br>
-    <button style={{marginLeft:580,marginTop:30,height:25,width:100}} onClick={(e)=>handleSubmit(e)}>Submit</button>
+    <button style={{marginLeft:550,marginTop:30,height:40,width:100}} onClick={(e)=>handleSubmit(e)}>Submit</button>
     </form>
    
 

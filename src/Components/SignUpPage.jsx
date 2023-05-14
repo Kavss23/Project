@@ -18,15 +18,15 @@ function SignUpPage(){
         // <Button classname='btnSignUp' style={{marginLeft:150}} color='primary' onClick={(event)=>{handleUserClick(event)}}variant="contained"> USER</Button>
     return(
         <div className="BackImagr">
-        <Stack  direction="row" spacing={100}>
-        <div style={{marginTop:240,marginLeft:550}}>
+       
+        <div style={{marginTop:240,marginLeft:300}}>
         <form>
-        <button style={{marginLeft:50 ,height:60,width:200}} onClick={(e)=>{handleOwnerClick(e)}}>CANTEEN  OWNER</button>
-        <button style={{marginLeft:150,height:60,width:200}} onClick={(event)=>{handleUserClick(event)}}>USER</button>
+        <button style={{marginLeft:10 ,height:60,width:200}} onClick={(e)=>{handleOwnerClick(e)}}>CANTEEN  OWNER</button>
+        <button style={{marginLeft:50,height:60,width:200}} onClick={(event)=>{handleUserClick(event)}}>USER</button>
         
         </form>
         </div>
-        </Stack>
+        
         </div>
     )
 }

@@ -17,6 +17,10 @@ import {
   const handleClick=()=>{
     window.location.href="http://localhost:3000/feedback"
   }
+
+  const handleNoClick=()=>{
+    window.location.href="http://127.0.0.1:8000/route/"
+  }
   function ConfirmBox({ open, closeDialog, title }) {
     {console.log("entered")}
     return (
@@ -64,7 +68,7 @@ import {
             <Button onClick={()=>handleClick()} size="medium" variant="contained" color="primary">
                 Yes
               </Button>
-            <Button onClick={closeDialog} size="medium" variant="contained" color="error">
+            <Button onClick={()=>handleNoClick()} size="medium" variant="contained" color="error">
                 No
               </Button>{" "}
               
